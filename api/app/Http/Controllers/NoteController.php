@@ -13,13 +13,20 @@ class NoteController extends Controller
         return Note::all();
     }
 
-
     public function store(Request $request)
     {
-        $data = $request->only('title','content','folder_id','is_starred');
-        $data['user_id'] = 2;
+        $validated = $request->validate([
+            'title' => 'required|string|max:100',
+            'content' => 'nullable|string',
+            'folder_id' => 'nullable|exists:folders,id',
+            'is_starred' => 'boolean'
+        ]);
 
-        Note::create($data);
+        $validated['user_id'] = auth()->id() ?? 2;
+
+        $note = Note::create($validated);
+
+        return response()->json($note,201);
     }
 
     public function show(string $id)
