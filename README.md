@@ -13,7 +13,7 @@ Toda a aplicação é orquestrada via **Docker**. Isso garante um ambiente de de
 O repositório está organizado no formato monorepo para facilitar o fluxo de trabalho:
 
 *   📁 **`/api`**: Backend construído em PHP com o framework Laravel, responsável por expor os endpoints RESTful, validar regras de negócio e gerenciar o banco de dados.
-*   📁 **`/frontend`**: Aplicação cliente construída com Vue.js e Tailwind CSS para consumir a API e renderizar a interface de usuário de forma reativa.
+*   📁 **`/frontend`**: Aplicação cliente construída com React.js e Tailwind CSS para consumir a API e renderizar a interface de usuário de forma reativa.
 
 ## 🧪 Qualidade e Testes
 
